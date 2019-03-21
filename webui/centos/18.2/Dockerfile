@@ -19,4 +19,5 @@ EXPOSE 80
 VOLUME /etc/bareos-webui
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
-CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+# 'apache2ctl' is called 'apachectl' in CentOS
+CMD ["/usr/sbin/apachectl", "-D", "FOREGROUND"]
