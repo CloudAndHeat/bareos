@@ -2,7 +2,7 @@
 version: '3'
 services:
   bareos-dir:
-    image: barcus/bareos-director:mysql-centos
+    image: barcus/bareos-director:18.2-mysql-centos
     build:
       context: ../director-mysql/centos/18.2
     ports:
@@ -24,7 +24,7 @@ services:
       - bareos-db:bareos-db
 
   bareos-sd:
-    image: barcus/bareos-storage:centos
+    image: barcus/bareos-storage:18.2-centos
     build:
       context: ../storage/centos/18.2
     ports:
@@ -33,7 +33,7 @@ services:
       - BAREOS_SD_PASSWORD=ThisIsMySecretSDp4ssw0rd
 
   bareos-fd:
-    image: barcus/bareos-client:centos
+    image: barcus/bareos-client:18.2-centos
     build:
       context: ../client/centos/18.2
     environment:
@@ -42,7 +42,7 @@ services:
       - bareos-sd:bareos-sd
 
   bareos-webui:
-    image: barcus/bareos-webui:centos
+    image: barcus/bareos-webui:18.2-centos
     build:
       context: ../webui/centos/18.2
     ports:
