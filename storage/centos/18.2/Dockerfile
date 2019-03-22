@@ -8,7 +8,7 @@ env RELEASE=release/18.2/
 env URL=http://download.bareos.org/bareos/$RELEASE/$DIST
 
 RUN curl -o /etc/yum.repos.d/bareos.repo $URL/bareos.repo && \
-    yum install -y bareos-storage bareos-tools bareos-storage-droplet
+    yum install -y bareos-storage bareos-tools bareos-storage-droplet libdroplet
 
 COPY docker-entrypoint.sh /
 RUN chmod u+x /docker-entrypoint.sh
